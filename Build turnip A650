@@ -1,0 +1,28 @@
+
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build patchelf unzip flex bison git perl python3-pip glslang-tools curl zip patch
+          pip3 install --break-system-packages meson mako
+
+      - name: Build
+        run: |
+          chmod +x build_turnip_a650.sh
+          export BUILD_VERSION="27.0.0-A650-${{ github.run_number }}"
+          ./build_turnip_a650.sh
+
+      - name: Upload driver ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: turnip-a650
+          path: turnip_workdir/mesa-turnip-perf-*.zip
