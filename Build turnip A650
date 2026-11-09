@@ -17,7 +17,7 @@ jobs:
 
       - name: Build
         run: |
-          chmod +x build_turnip_a650.sh
+          chmod +x build_turnip_exp.sh
           export BUILD_VERSION="27.0.0-A650-${{ github.run_number }}"
           ./build_turnip_a650.sh
 
@@ -25,4 +25,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: turnip-a650
-          path: turnip_workdir/mesa-turnip-perf-*.zip
+          path: path: turnip_workdir/mesa-turnip-exp-*.zip
