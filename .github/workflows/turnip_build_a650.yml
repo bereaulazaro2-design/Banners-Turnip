@@ -17,12 +17,12 @@ jobs:
 
       - name: Build
         run: |
-          chmod +x build_turnip_a650.sh
+          chmod +x build_turnip_exp.sh
           export BUILD_VERSION="27.0.0-A650-${{ github.run_number }}"
           ./build_turnip_a650.sh
 
       - name: Upload driver ZIP
         uses: actions/upload-artifact@v4
         with:
-          name: turnip-a650
-          path: turnip_workdir/mesa-turnip-perf-*.zip
+          name: turnip-a650v2
+          path: turnip_workdir/mesa-turnip-exp-*.zip
