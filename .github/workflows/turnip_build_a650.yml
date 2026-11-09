@@ -19,7 +19,7 @@ jobs:
         run: |
           chmod +x build_turnip_exp.sh
           export BUILD_VERSION="27.0.0-A650-${{ github.run_number }}"
-          ./build_turnip_a650.sh
+          ./build_turnip_exp.sh
 
       - name: Upload driver ZIP
         uses: actions/upload-artifact@v4
